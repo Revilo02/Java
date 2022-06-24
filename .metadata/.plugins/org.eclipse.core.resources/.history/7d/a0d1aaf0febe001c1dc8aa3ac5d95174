@@ -1,0 +1,9 @@
+package Könyvtár_nyilvántartó;
+
+import java.util.Comparator;
+
+public class MufajComparator implements Comparator<Könyvek> {
+	public int compare(Könyvek b1, Könyvek b2){
+	return b1.getName().compareTo(b2.getName());
+	}
+}

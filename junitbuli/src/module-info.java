@@ -1,0 +1,3 @@
+module junitbuli {
+	requires junit;
+}

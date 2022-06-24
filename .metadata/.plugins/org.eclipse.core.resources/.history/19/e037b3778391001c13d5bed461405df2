@@ -1,0 +1,30 @@
+package Hanoitornyai;
+
+public class Hanoi {
+	
+	static void tornyok(int n,char honnan,char seged,char hova)
+	{
+		if (n==0)
+			return ;
+	    tornyok (n - 1,honnan, seged, hova);
+	    System.out.println("rakj 1-et "  honnan  +"---> " + hova );
+	    tornyok(n - 1, seged, honnan, hova);
+	}
+	static public void main(String[] args) {
+		tornyok(4,'A','B','C');
+	}
+}
+/*def hanoi(n, honnan, seged, hova):
+if n == 0:
+return
+hanoi(n - 1, honnan, hova, seged)
+print(f"rakj 1-et: {honnan} -> {hova}")
+hanoi(n - 1, seged, honnan, hova)
+
+
+def main():
+hanoi(4, 'A', 'B', 'C')
+
+
+main()
+*/

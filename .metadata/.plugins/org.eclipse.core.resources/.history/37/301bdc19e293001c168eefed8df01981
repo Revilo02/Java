@@ -1,0 +1,31 @@
+package hello;
+
+public class Helloworld {
+	static int osztokSzama(int szam) {
+		int db = 0;
+		for (int i = 1; i <= szam; i++) {
+			if (szam % i == 0) {
+				db++;
+				} 
+		}
+		return db;
+	}
+	
+	static boolean prim_e(int szam) {
+		if (osztokSzama(szam) == 2) {
+			return true;
+		}
+		return false;
+	}
+	
+	public static void main(String[] args) {
+		
+		for (int x = 0, n = 2; x < 100; n++) {
+			if (prim_e(x)) {
+				System.out.print(n + " ");
+				x++;
+			}
+		}
+		System.out.print("vége");
+	}
+}

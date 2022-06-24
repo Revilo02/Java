@@ -1,0 +1,17 @@
+package Könyvtár_nyilvántartó;
+import java.util.Scanner;
+
+
+
+import java.util.ArrayList;
+public class Menu {
+	//Itt lesznek a menüknek az almenüi
+	
+	
+	
+	public static void Add(ArrayList<Könyvek> lista) {
+	
+			
+		System.out.println("Ez volt a hibás");
+	}
+}

@@ -1,0 +1,5 @@
+1;A pál utcai fiúk;Molnár Ferenc;regény;2034;Fiataloknak szóló könyv
+2;Az Egri csillagok;Gárdonyi Géza;Történelmi;2054;Nem annyira fiataloknak szóló Könyv
+3;Nemzeti Dal;Petőfi Sándor;Dal;1848;Ha univerzumot akarsz elpusztítani
+4;A pál utcai fiúk;Molnár Ferenc;regény;2034;Még nincs leírás hozzáadva
+5;Az egri csillagok;Gárdonyi Géza;regény;2034;Még nincs leírás hozzáadva

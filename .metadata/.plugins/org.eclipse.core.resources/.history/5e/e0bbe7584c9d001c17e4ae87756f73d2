@@ -1,0 +1,13 @@
+package Suzuki;
+
+public class Main {
+	static public void main(String[] args) {
+		Person p1=new Person("László Olivér","2768,Újszilvás Mátyás Király utca 44/b",2002);
+		Person p2=new Person("László Olivér","2768,Újszilvás Mátyás Király utca 44/b",2007);
+		Veichle v1=new Veichle("Suzuki","JZC-068",1995 );
+		Veichle v2=new Veichle("Fiat","GVK-954",1989 );
+		p2.AddCar(v2);
+		System.out.println(p1);
+		System.out.println(p2);
+	}
+}

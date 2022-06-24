@@ -1,0 +1,82 @@
+package Könyvtár_nyilvántartó;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.io.*;
+public class Main extends Menu{
+	public static void Add(ArrayList<Könyvek> lista) {
+		Scanner sc=new Scanner(System.in);
+		while (true) {
+			String cmd=sc.nextLine();
+			if(cmd.equals("1")) {
+				System.out.print("Kérjük adja meg a Könyv címét: ");
+				String cim=sc.nextLine();
+				System.out.print("Kérjük adja meg a Könyv szerzõjét: ");
+				String szerzo=sc.nextLine();
+				System.out.print("Kérjük adja meg a könyv mûfaját: ");
+				String mufaj=sc.nextLine();
+				System.out.print("Kérjük adja meg a könyv kiadásának évét: ");
+				int kiadaseve=sc.nextInt();
+				System.out.println("Kérjük adja meg a könyv példányszámát: ");
+				int peldanyszam=sc.nextInt();
+				sc.close();
+				
+				lista.add(new Irodalmi(cim,szerzo,kiadaseve,peldanyszam,mufaj));
+				System.out.println("Könyv sikeresen hozzáadva");
+				return;
+			}if(cmd.equals("2")) {
+				System.out.print("Kérjük adja meg a Könyv címét: ");
+				String cim=sc.nextLine();
+				System.out.print("Kérjük adja meg a Könyv szerzõjét: ");
+				String szerzo=sc.nextLine();
+				System.out.print("Kérjük adja meg a könyv tudományágát:");
+				String tudag=sc.nextLine();
+				System.out.print("Kérjük adja meg a könyv publikációjának évszámát: ");
+				int evszam=sc.nextInt();
+				System.out.print("Adja meg a könyv példányszámát");
+				int peldanyszam=sc.nextInt();
+				System.out.print("Kíván leírást is hozzáadni?(igen/nem) ");
+				Tudomanyos uj=new Tudomanyos(cim,szerzo,evszam,peldanyszam,tudag);
+				while (true) {
+					String igaz=sc.nextLine();
+					if(igaz.equals("igen")) {
+						
+						String leiras=sc.nextLine();
+						uj.setLeiras(leiras);
+						break;
+					}else if(igaz.equals("nem")) {
+						break;
+					}	
+				}
+				sc.close();
+				lista.add(uj);
+				break;
+			}
+		}}
+	public static void main(String[] args) throws IOException {
+		ArrayList<Könyvek> books=new ArrayList<Könyvek>();
+		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+		Scanner s=new Scanner(System.in);
+		//String cmd = bf.readLine();	
+		Add(books);
+
+		while(true) {
+			String linse = s.nextLine();
+			String[] cmd = {"9"};
+			if(cmd[0].equals("9")) {
+				s.close();
+				
+				break;
+			} else if(cmd[0].equals("0")) {
+				Add(books);
+			} else if(cmd[0].equals("list")) {
+				
+			} else if(cmd[0].equals("search")) {
+				;
+			} else if(cmd[0].equals("find")) {
+				
+			}else if(cmd[0].equals("remove")) {
+						}
+		}
+		
+	}
+}

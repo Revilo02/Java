@@ -1,0 +1,31 @@
+package Suzuki;
+
+
+public class Veichle {
+	private int made;
+	private String rendszam;
+	private String type;
+	private Person Owner;
+	public Veichle(String tip ,String rszam,int gyev){
+		made=gyev;
+		rendszam=rszam;
+		type=tip;
+	}
+	public Veichle(String tip,String rszam){
+		made=0;
+		rendszam=rszam;
+		type=tip;
+	}
+	public String getRendszam() {return rendszam;}
+	public int getMade() {return made;}
+	public String getType() {return type;}
+//	public void setOwner(Person o) { Owner =o;}
+	public Person getOwner() {return Owner;}
+//	public void setTeacher(Teacher t) { teacher = t; }
+
+	public String toString() {
+		String s=type+" "+rendszam+" "+made+"";
+		return s;
+	}
+	public void setOwner(Person p) {Owner=p;}
+}

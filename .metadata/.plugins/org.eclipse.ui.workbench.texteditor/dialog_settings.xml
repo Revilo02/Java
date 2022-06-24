@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item key="wrap" value="true"/>
+		<item key="casesensitive" value="true"/>
+		<item key="wholeword" value="true"/>
+		<item key="incremental" value="false"/>
+		<item key="isRegEx" value="false"/>
+		<item key="selection" value="&lt;3"/>
+		<list key="findhistory">
+			<item value="&lt;3"/>
+			<item value="* szia"/>
+			<item value="*szia"/>
+			<item value="szia"/>
+			<item value="remove"/>
+			<item value="removve"/>
+			<item value="add"/>
+			<item value="Tarolo.getBooksList().get"/>
+			<item value="Tarolo.getBooksList().add"/>
+			<item value="Tarolo.getBooksList().get(i)"/>
+			<item value="Tarolo.getBooksList().get(j)"/>
+			<item value="Tarolo.getLatogatoList().get(i)"/>
+			<item value="Tarolo.getLatogatoList().size()"/>
+			<item value="Tarolo.getBooksList().size()"/>
+			<item value="Tarolo.BooksListSize()"/>
+		</list>
+		<list key="replacehistory">
+			<item value="Tarolo.getBooksElement("/>
+			<item value="Tarolo.BooksListElement("/>
+			<item value="Tarolo.BooksListAdd"/>
+			<item value="Tarolo.getBooksElement(i)"/>
+			<item value="Tarolo.getBooksElement(j)"/>
+			<item value="Tarolo.getBooksElement(int j)"/>
+			<item value="Tarolo.getLatogatokElement(i)"/>
+			<item value="Tarolo.LatogtoListSize()"/>
+			<item value="Tarolo.LatogatoListSize()"/>
+			<item value="Tarolo.BooksListSize()"/>
+			<item value=""/>
+			<item value="wd"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="787"/>
+		<item key="DIALOG_Y_ORIGIN" value="586"/>
+		<item key="DIALOG_WIDTH" value="841"/>
+		<item key="DIALOG_HEIGHT" value="304"/>
+		<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+	</section>
+</section>

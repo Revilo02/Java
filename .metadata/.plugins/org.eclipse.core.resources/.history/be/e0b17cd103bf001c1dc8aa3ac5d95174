@@ -1,0 +1,87 @@
+package Könyvtár_nyilvántartó;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.io.*;
+public class Main extends IO{
+	
+	static public void main(String[] args) throws Exception {
+		try{beolvas("Olvasok.txt");}catch ( FileNotFoundException e) {
+			  System.err.println(e.getMessage());}
+		//sArrayList<Könyvek> books=new ArrayList<Könyvek>();
+		books.add(new Könyvek("Pál","Móra","Mûfaj",1));
+		latogatok.add(new Latogato("László Olivér","A sírköve"));
+		latogatok.add(new Latogato("László Olivér2","Nem a sírköve"));
+		//latogatok.get(1).listaz().add(books.get(1));
+		for(int i=0;i<books.size();i++) {
+			System.out.println(books.get(i));
+		}
+		//System.out.println(books.size());
+		Scanner sc=new Scanner(System.in);
+		//String cmd = bf.readLine();	
+		
+		//boolean a=books.get(0).getClass().equals(Irodalmi i);
+	//	System.out.println(books.get(0).getClass());
+		while(true) {
+			Fomenu();
+			String cmd = sc.nextLine();
+			
+			if(cmd.equals("9")) {
+				sc.close();
+				break;
+			} else if(cmd.equals("0")) {
+				Letrehoz();
+			} else if(cmd.equals("1")) {
+				try{DeleteBook();}
+				catch (BookNotFoundException e) {
+					  System.err.println(e.getMessage());}
+				catch (IDNotFoundException e) {
+					System.err.println(e.getMessage());
+				}
+			} else if(cmd.equals("2")) {
+				try{Bookmodify();}
+				catch (BookNotFoundException e) {
+					  System.err.println(e.getMessage());
+				}catch (IDNotFoundException e) {
+					System.err.println(e.getMessage());
+				}
+			} else if(cmd.equals("3")) {
+				try{KonyvKiad();}
+				catch (BookNotFoundException e) {
+					  System.err.println(e.getMessage());}
+				catch (IDNotFoundException e) {
+					System.err.println(e.getMessage());
+				}
+				catch (ReaderNotFoundException e) {
+					  System.err.println(e.getMessage());}
+				catch (ReaderIDNotFoundException e) {
+					  System.err.println(e.getMessage());}
+			}else if(cmd.equals("4")) {
+				try{KonyvVisszavesz();}
+				catch (NotOwnerException e) {
+					  System.err.println(e.getMessage());}
+			}else if(cmd.equals("5")){
+				try{Booksearch();}
+				catch (BookNotFoundException e) {
+					  System.err.println(e.getMessage());}
+			}else if(cmd.equals("6")){
+				OlvasoLetrehoz();
+			}else if(cmd.equals("7")){
+				try{Olvasomodify();}
+				catch (ReaderNotFoundException e) {
+					  System.err.println(e.getMessage());}
+				catch (ReaderIDNotFoundException e) {
+					  System.err.println(e.getMessage());}
+			}else if(cmd.equals("8")){
+				Collections.sort(books, new IDComparator());	
+
+			}
+			System.out.println();
+		}
+
+		
+	}
+}
+
+

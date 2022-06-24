@@ -1,0 +1,62 @@
+package Könyvtár_nyilvántartó;
+import java.util.Scanner;
+
+
+
+import java.util.ArrayList;
+public class Menu {
+	//Itt lesznek a menüknek az almenüi
+	
+	
+	
+	public static void Add(ArrayList<Könyvek> lista) {
+		Scanner scc=new Scanner(System.in);
+		while (true) {
+			String cmd=sc.nextLine();
+			if(cmd.equals("1")) {
+				System.out.print("Kérjük adja meg a Könyv címét: ");
+				String cim=sc.nextLine();
+				System.out.print("Kérjük adja meg a Könyv szerzõjét: ");
+				String szerzo=sc.nextLine();
+				System.out.print("Kérjük adja meg a könyv mûfaját: ");
+				String mufaj=sc.nextLine();
+				System.out.print("Kérjük adja meg a könyv kiadásának évét: ");
+				String kiadaseve=sc.nextLine();
+				System.out.println("Kérjük adja meg a könyv példányszámát: ");
+				String peldanyszam=sc.nextLine();
+				
+				
+				//lista.add(new Irodalmi(cim,szerzo,kiadaseve,peldanyszam,mufaj));
+				System.out.println("Könyv sikeresen hozzáadva");
+				break;
+			}if(cmd.equals("2")) {
+				System.out.print("Kérjük adja meg a Könyv címét: ");
+				String cim=sc.nextLine();
+				System.out.print("Kérjük adja meg a Könyv szerzõjét: ");
+				String szerzo=sc.nextLine();
+				System.out.print("Kérjük adja meg a könyv tudományágát:");
+				String tudag=sc.nextLine();
+				System.out.print("Kérjük adja meg a könyv publikációjának évszámát: ");
+				int evszam=sc.nextInt();
+				System.out.print("Adja meg a könyv példányszámát");
+				int peldanyszam=sc.nextInt();
+				System.out.print("Kíván leírást is hozzáadni?(igen/nem) ");
+				Tudomanyos uj=new Tudomanyos(cim,szerzo,evszam,peldanyszam,tudag);
+				while (true) {
+					String igaz=sc.nextLine();
+					if(igaz.equals("igen")) {
+						
+						String leiras=sc.nextLine();
+						uj.setLeiras(leiras);
+						break;
+					}else if(igaz.equals("nem")) {
+						break;
+					}	
+				}
+				sc.close();
+				//lista.add(uj);
+				break;
+			}
+		}
+	}
+}

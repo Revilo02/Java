@@ -1,0 +1,17 @@
+package Könyvtár_nyilvántartó;
+
+public class Irodalmi extends Könyvek {
+	String mufaj;
+	Irodalmi(String name, String szerzo, int kiadaseve,  String mufaj) {
+		super(name, szerzo, kiadaseve);
+		this.mufaj=mufaj;
+		type="i";
+	}
+	public String getMufaj() {return mufaj;}
+	public void setMufaj(String s) {mufaj=s;}
+	public String toString() {
+		return super.toString()+", "+mufaj;
+	}
+	//Késõbbi adattagmódosításokhoz a Setter metódusok itt lesznek
+	
+}

@@ -1,0 +1,3 @@
+module Filmtár {
+	requires junit;
+}

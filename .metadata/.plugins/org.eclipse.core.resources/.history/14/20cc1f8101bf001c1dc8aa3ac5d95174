@@ -1,0 +1,50 @@
+package Könyvtár_nyilvántartó;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+public class IO extends Parancsok {
+	static void beolvas(String Filename) throws Exception
+	{  
+		File file = new File(Filename);
+
+		try (	BufferedReader in = new BufferedReader( new InputStreamReader(new FileInputStream(file), "UTF8"))) {
+		  String str;
+		  
+		  while ((str = in.readLine()) != null) {
+			String [] sv=str.split(";") ;
+			
+			//	int a=(int)sv[3];
+			if(Filename.equals("Könyvek.txt"))
+				try{
+					Könyvek k=(new Könyvek (sv[1],sv[2],sv[3],Integer.parseInt(sv[4])));
+					k.setID(Integer.parseInt(sv[0]));
+					k.setLeiras(sv[6]);
+					if(sv[5].equals("true")) {
+						k.setKiadva(false);
+					}else {
+						k.setKiadva(true);
+					}
+					books.add(k);
+				}   catch (Exception e) {
+					  System.out.println(e.getMessage());
+					  System.out.println("Nem megfelelő adattagok");}
+				
+				
+				}
+		
+		  
+
+		} catch (Exception e) {
+		  System.out.println(e.getMessage());
+		}
+	}
+}
+	
+	/*
+	 * String mufaj;
+	Irodalmi(String name, String szerzo, int kiadaseve,  String mufaj) ,
+		super(name, szerzo, kiadaseve);
+		this.mufaj=mufaj;
+		type="i";
+	}*/
+}

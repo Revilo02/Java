@@ -1,0 +1,196 @@
+package sportk;
+
+import java.util.*;
+
+class Parancsok {
+	static ArrayList<Sportolok> sportolo = new ArrayList<Sportolok>();
+	static ArrayList<Tanar> tanar = new ArrayList<Tanar>();
+	static ArrayList<Sport> sport = new ArrayList<Sport>();
+
+	protected static void SPeopleadd() {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Kérem adja meg a sportoló nevét: ");
+		String nev = s.nextLine();
+		System.out.println("Kérem adja meg a sportoló születésének évét: ");
+		String szev = s.nextLine();
+		System.out.println("Kérem adja meg a sportoló email címét: ");
+		String email = s.nextLine();
+		System.out.println("Kérem adja meg a sportoló edzési szintjét: ");
+		String szint = s.nextLine();
+
+		sportolo.add(new Sportolok(nev, Integer.parseInt(szev), email, szint));
+		s.close();
+	}
+
+	protected static void Teacheradd() {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Kérem adja meg a oktató nevét: ");
+		String nev = s.nextLine();
+		System.out.println("Kérem adja meg a oktató születésének évét: ");
+		String szev = s.nextLine();
+		System.out.println("Kérem adja meg a oktató email címét: ");
+		String email = s.nextLine();
+		System.out.println("Kérem adja meg a oktató értékelését: ");
+		String ertekeles = s.nextLine();
+
+		tanar.add(new Tanar(nev, Integer.parseInt(szev), email, ertekeles));
+
+		s.close();
+	}
+
+	static public void Peopleadd() {
+		String valasz;
+		Scanner s = new Scanner(System.in);
+		while (true) {
+			valasz = s.nextLine();
+			if (valasz.equals("1")) {
+				Teacheradd();
+			} else if (valasz.equals("2")) {
+				SPeopleadd();
+			} else if (valasz.equals("3")) {
+				break;
+			}
+		}
+	}
+
+	static public void Sportadd() {
+		String valasz;
+		Scanner s = new Scanner(System.in);
+		while (true) {
+			valasz = s.nextLine();
+			if (valasz.equals("1")) {
+			} else if (valasz.equals("2")) {
+			} else if (valasz.equals("3")) {
+				break;
+			}
+		}
+	}
+
+	protected static void Oktatoszerint() {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Kérem adja meg a oktató nevét akire rá szeretne keresni: ");
+		String nev = s.nextLine();
+		for (int i = 0; i < tanar.size(); i++) {
+			if (tanar.get(i).getNev().contains(nev)) {
+				System.out.println(tanar.get(i));
+			}
+		}
+
+	}
+
+	protected static void Sportoloszerint() {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Kérem adja meg a sportoló nevét akire rá szeretne keresni: ");
+		String nev = s.nextLine();
+		for (int i = 0; i < sportolo.size(); i++) {
+			if (sportolo.get(i).getNev().contains(nev)) {
+				System.out.println(sportolo.get(i));
+			}
+		}
+
+	}
+
+	protected static void Sportszerint() {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Kérem adja meg a sport nevét amire rá szeretne keresni: ");
+		String nev = s.nextLine();
+		for (int i = 0; i < sport.size(); i++) {
+			if (sport.get(i).getNev().contains(nev)) {
+				System.out.println(sport.get(i));
+			}
+		}
+
+	}
+
+	protected static void Idopontszerint() {
+		Scanner s = new Scanner(System.in);
+		System.out.println("Kérem adja meg a napot amire rá szeretne keresni: ");
+		String ido = s.nextLine();
+		for (int i = 0; i < sport.size(); i++) {
+			if (sport.get(i).getIdopont().contains(ido)) {
+				System.out.println(sport.get(i));
+			}
+		}
+
+	}
+
+	static public void Data() {
+		String valasz;
+		Scanner s = new Scanner(System.in);
+		while (true) {
+			valasz = s.nextLine();
+			if (valasz.equals("1")) {
+				Sportszerint();
+			} else if (valasz.equals("2")) {
+				Oktatoszerint();
+			} else if (valasz.equals("3")) {
+				Sportoloszerint();
+			} else if (valasz.equals("4")) {
+				Idopontszerint();
+			} else if (valasz.equals("5")) {
+				break;
+			}
+		}
+	}
+
+	protected static int Smodify() {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Kérem adja meg a módosítandó sportoló nevét: ");
+		String reginev = sc.nextLine();
+		for (int i = 0; i < sportolo.size(); i++) {
+			if (sportolo.get(i).getNev().contains(reginev)) {
+				System.out.println(sportolo.get(i));
+			}
+		}
+		System.out.println("Kérem adja meg a sportoló ID-ját");
+		int elvartID=sc.nextInt();
+		
+		for (int i = 0; i < sportolo.size(); i++){
+			if(elvartID==sportolo.get(i).getID());
+			return i;
+		}
+		return -1;
+	}
+	protected static void spModify() {
+		int i=Smodify();
+		System.out.println("Adja meg a beolvasott nevet");
+		Scanner sc=new Scanner(System.in);
+		String v1="";
+		while(true) {
+			if(v1.equals("n")){
+				System.out.println("Kérem adja meg az új nevet: ");
+				String ujnev=s.nextLine();
+				sportolo.get(i).setNev(ujnev);
+			}
+			else if(v1.equals("s")){
+				System.out.println("Kérem adja meg az új születési évét: ");
+				int ujev=s.nextInt();
+				sportolo.get(i).setSzev(ujev);
+			}
+			else if(v1.equals("e")){
+				System.out.println("Kérem adja meg az új email címet: ");
+				String ujemail=s.nextLine();
+				sportolo.get(i).setEmail(ujemail);
+			}	
+			else if(v1.equals("v")) {
+				break;
+			}
+			}}
+	}
+
+	static public void Tmodify() {
+		String valasz;
+		Scanner s = new Scanner(System.in);
+		while (true) {
+			valasz = s.nextLine();
+			if (valasz.equals("1")) {
+			} else if (valasz.equals("2")) {
+			} else if (valasz.equals("3")) {
+			} else if (valasz.equals("4")) {
+				break;
+			}
+		}
+
+	}
+
+}

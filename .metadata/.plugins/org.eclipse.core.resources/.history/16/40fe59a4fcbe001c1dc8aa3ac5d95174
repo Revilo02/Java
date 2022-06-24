@@ -1,0 +1,336 @@
+package Könyvtár_nyilvántartó;
+
+import java.io.*;
+import java.util.*;
+
+
+public class Parancsok extends Menu{
+	
+	//Nem szereti a program ha itt SC.close-t használok mert akkor a main.java-ban hiba keletkezik
+	
+	
+	//Könyvek törlése ami kiszûri azt ha a felhasználó olyanra keres ami nem létezik -->vissza a fõmenübe ,ha rossz ID-t ad meg --> vissza a fõmenübe
+	//Jó ID-t ad meg és benne van a felsorolásba -->sikeres törlés
+	
+	
+	
+	protected static boolean elerhetoKonyv(Könyvek k) {
+		
+		if (k.getKiadva()==true)
+			return false;
+		else return true;
+	}
+	protected static int kiadhato() throws BookNotFoundException, IDNotFoundException {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Adja meg a kivenni kívánt könyv címét: ");
+		String kivesz=sc.nextLine();
+		int cnt=0;
+		for(int i=0;i<books.size();i++) {
+			if(books.get(i).getName().contains(kivesz) & elerhetoKonyv(books.get(i))) {
+				cnt++;
+				System.out.println(books.get(i));
+			}
+		}
+		if(cnt==0)throw new BookNotFoundException(kivesz);
+		else {
+			int kiadID=sc.nextInt();
+			for(int i=0;i<books.size();i++) {
+				if(books.get(i).getName().contains(kivesz) & elerhetoKonyv(books.get(i)) &kiadID==books.get(i).getID()) {
+					return kiadID;
+				}
+			}throw new IDNotFoundException(kiadID);
+		}
+	}
+	
+	protected static void KonyvVisszavesz() throws Exception {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Adja meg az olvasónak a nevét aki könyvet hozott vissza: ");
+		int sv=OlvasoSearch();
+		int i=0;
+		for( i=0;i<latogatok.size();i++) {
+			if(latogatok.get(i).getID()==sv ) {
+				
+				break;
+			}
+	
+		}
+		if (latogatok.get(i).listaz().size()==0) {
+			throw new NotOwnerException();
+		}else {
+			for(int j=0;j<latogatok.get(i).listaz().size();j++) {
+				System.out.println(latogatok.get(i).listaz().get(j));
+			}
+			System.out.println("Adja meg a visszahozni kívánt könyv ID-ját");
+			int id=sc.nextInt();
+			for(int j=0;j<latogatok.get(i).listaz().size();j++) {
+				latogatok.get(i).listaz().get(j).setKiadva(false);
+				latogatok.get(i).listaz().remove(j);
+			}
+			System.out.println("Sikeres könyv visszavétel");
+			
+			//return;
+		}
+	
+}
+	protected static void KonyvKiad() throws Exception {
+		int kiad=kiadhato();
+		System.out.println("Adja meg az olvasó nevét aki ki kívánja venni a könyvet: ");
+		int vevo=OlvasoSearch();
+		for(int i=0;i<latogatok.size();i++) {
+			if(latogatok.get(i).getID()==vevo ) {
+				for(int j=0; j<books.size();j++) {
+					if(books.get(j).getID()==kiad) {
+						books.get(j).setKiadva(true);
+						latogatok.get(i).konyvadd(books.get(j));;
+				}
+			}
+		}
+	}
+}	
+	
+	
+	
+	
+	protected static void OlvasoLetrehoz() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Kérem adja meg az olvasó TELJES nevét: ");
+		String nev=sc.nextLine();
+		System.out.println("Kérem adja meg az olvasó elérhetõségét:");
+		String elerh=sc.nextLine();
+		latogatok.add(new Latogato(nev,elerh));
+		System.out.println("Olvasó sikeresen hozzáadva");
+	}
+	protected static int OlvasoSearch() throws Exception {
+		Scanner sc=new Scanner(System.in);
+		int cnt=0;
+		String nev=sc.nextLine();
+		for(int i=0; i<latogatok.size();i++) {
+			if(latogatok.get(i).getName().contains(nev)) {
+				System.out.println(latogatok.get(i).getID()+" "+latogatok.get(i));
+				cnt++;
+			}
+		}
+		if (cnt==0) {
+			throw new ReaderNotFoundException();
+		}
+		int id=sc.nextInt();
+		for(int i=0; i<latogatok.size();i++) {
+			if(latogatok.get(i).getName().contains(nev)  & latogatok.get(i).getID()==id) {
+				return id;
+			}
+		}throw new ReaderIDNotFoundException();
+	}
+	protected static void Olvasomodify() throws Exception {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Kérem adja meg a módosítani kívánt olvasó nevét: ");
+		int a=OlvasoSearch();
+		System.out.println("Kérem válasszon az alábbi menüpontok közül: ");
+		readermodify();
+		while (true) {
+			String cmd=sc.nextLine();
+			
+			if(cmd.equals("1")) {
+				System.out.println("Adja meg az olvasó új nevét");
+				String ujnev=sc.nextLine();
+				latogatok.get(a).namemodosit(ujnev);
+				System.out.println("Sikeres módosítás");
+				break;
+			}else if(cmd.equals("2")) {
+				System.out.println("Adja meg az olvasó új elérhetõségét");
+				String ujelerh=sc.nextLine();
+				latogatok.get(a).elerhetosegmodosit(ujelerh);
+				System.out.println("Sikeres módosítás");
+				break;
+			}else if(cmd.equals("3")) {
+				System.out.println("Adja meg az olvasó új nevét");
+				String ujnev=sc.nextLine();
+				latogatok.get(a).namemodosit(ujnev);
+				System.out.println("Adja meg az olvasó új elérhetõségét");
+				String ujelerh=sc.nextLine();
+				latogatok.get(a).elerhetosegmodosit(ujelerh);
+				break;
+			}else if(cmd.equals(4)) {
+				break;
+			}
+		}
+	}
+	
+	
+	static int keres(int talalat,String cim) throws Exception{
+		for(int i=0;i<books.size();i++) {
+			if(books.get(i).getID()==talalat &books.get(i).getName().contains(cim) &elerhetoKonyv(books.get(i))) {
+				return i;
+			}	
+		}throw new IDNotFoundException(talalat);
+		//	return -1;
+	}
+	
+	
+	
+	protected static void DeleteBook() throws Exception {
+		int cnt=0;
+		System.out.println("Írja be a törölni kívánt könyv címét");
+		Scanner sc=new Scanner(System.in);
+		String cim=sc.nextLine();
+		
+		for(int i=0;i<books.size();i++) {
+		
+			if(books.get(i).getName().contains(cim)) {
+				cnt++;
+				System.out.println(books.get(i));
+			}
+		}
+		if(cnt==0) {
+			throw new BookNotFoundException(cim);
+			//System.out.println("Nincs találat vissza iránytottuk   a fõmenübe");
+		}else {
+			System.out.println("Adja meg a törölni kívánt könyv ID-ját");
+			int torol;
+			try {
+				 torol=sc.nextInt();
+			}catch (Exception e) {
+				  System.err.println("nem megfelelõ bemenet") ;
+				  return;  };
+			
+			keres(torol,cim);
+			books.remove(keres(torol,cim));
+			System.out.println("Sikeres törlés");
+			}
+		}
+	
+	private static int searchbyname() throws BookNotFoundException, IDNotFoundException {
+		Scanner sc=new Scanner(System.in);
+		int cnt=0;
+		String cim=sc.nextLine();
+		for(int i=0;i<books.size();i++) {
+			if(cim.contains(books.get(i).getName())) {
+				cnt++;
+				System.out.println(books.get(i));
+			}
+		}
+		if(cnt==0) {
+			throw new BookNotFoundException(cim);
+		}
+		System.out.println("Adja meg a találatok közül a keresett könyv ID-ját:");
+		int a=sc.nextInt();
+		for(int i=0;i<books.size();i++) {
+			if(cim.contains(books.get(i).getName())&books.get(i).getID()==a ) {
+				return i;
+			}
+		}throw new IDNotFoundException(a);
+		
+	}
+	protected static void Bookmodify() throws Exception{
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Adja meg a módosítani kívánt könyv címét: ");
+		int modosit =searchbyname();
+		bookmodify();
+		System.out.println("Adja meg mi alapján szeretne módosítani");
+		while(true) {
+			String cmd=sc.nextLine();
+			if(cmd.equals("1")) {
+				System.out.println("Adja meg a könyv új címét: ");
+				String name=sc.nextLine();
+				books.get(modosit).setName(name);
+				break;
+			}else if(cmd.equals("2")) {
+				System.out.println("Adja meg a könyv új szerzõjét: ");
+				String author=sc.nextLine();
+				books.get(modosit).setSzerzo(author);
+				break;
+			}else if(cmd.equals("3")) {
+				System.out.println("Adja meg a könyv új mûfaját: ");
+				String mufaj=sc.nextLine();
+				books.get(modosit).setMufaj(mufaj);
+				break;
+			}else if(cmd.equals("4")) {
+				System.out.println("Adja meg a könyv új Kiadási évét ");
+				int kiadaseve=sc.nextInt();
+				books.get(modosit).setKiadaseve(kiadaseve);
+				break;
+			}else if(cmd.equals("5")) {
+				System.out.println("Adja meg a könyv új címét: ");
+				String name=sc.nextLine();
+				books.get(modosit).setName(name);
+				System.out.println("Adja meg a könyv új szerzõjét: ");
+				String author=sc.nextLine();
+				books.get(modosit).setSzerzo(author);
+				System.out.println("Adja meg a könyv új mûfaját: ");
+				String mufaj=sc.nextLine();
+				books.get(modosit).setMufaj(mufaj);
+				System.out.println("Adja meg a könyv új Kiadási évét ");
+				int kiadaseve=sc.nextInt();
+				books.get(modosit).setKiadaseve(kiadaseve);
+				break;
+			
+			}else if(cmd.equals(6))break;
+		}
+	}	
+	
+	private static void kilistaz() {
+		for(int i=0; i < books.size();i++) {
+			System.out.println(books.get(i).toString());
+			System.out.println();
+		}
+	}
+	protected static void Booksearch() throws Exception  {
+		Scanner sc=new Scanner(System.in);
+		booksearch();
+		while (true) {
+			String cmd=sc.nextLine();
+			
+			if(cmd.equals("1")) {
+				Collections.sort(books, new NameComparator());	
+				kilistaz();
+				break;
+			}else if( cmd.equals("2")){
+				Collections.sort(books, new AuthorComparator());
+				kilistaz();
+				break;
+			}else if(cmd.equals("3")) {
+				break;
+			}
+			
+			}
+		
+		}
+	
+	/*
+	 * Ez csak egy feleslegesen hosszú megoldása a könyv hozzáadásának , de mivel a felhasználót nem tartjuk túl okos lénynek ennyire legósan kellett kivitelezni ezt
+	 */
+	protected static void Letrehoz() throws Exception {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Ön az új könyv hozzáadása menüpontot választotta kérjük adja meg a könyv adatait");
+		System.out.print("Adja meg a létrehozni kívánt könyv címét: ");
+		String name=sc.nextLine();
+		System.out.print("Adja meg a könyv szerzõjét/szerzõit: ");
+		String szerzo=sc.nextLine();
+		System.out.print("Adja meg a könyv mûfaját");
+		String mufaj=sc.nextLine();
+		System.out.print("Adja meg a könyv kiadási évszámát");
+		int evszam=0;
+		try {
+			 evszam=sc.nextInt();
+		}catch (Exception e) {
+			  System.err.println("A könyv hozzáadása sikertelen nem megfelelõ bemenet") ;
+			  return;  };
+		System.out.println("Kíván leírást hozzáadni? (igen/nem)");
+		String disc="Nincs leírás hozzáadva";
+		while(true) {
+			String cmd=sc.nextLine();
+			if(cmd.equals("igen")) {
+				System.out.println("Adja meg a könyv leírását");
+				disc=sc.nextLine();
+				break;
+			}else if(cmd.equals("nem")){
+				break;
+			}
+		}
+		Könyvek k=(new Könyvek(name,szerzo,mufaj,evszam));
+		k.setLeiras(disc);
+		books.add(k);
+		System.out.println("Sikeres könyv hozzáadás");
+	}
+}
+
+	

@@ -1,0 +1,85 @@
+package masodik;
+
+
+
+public class Time {
+	private int min;
+	public Time(int hh,int mm)
+	{
+		min=60*hh+mm;
+	}
+	public Time() {this(0,0);}
+	public Time(int hh)
+	{
+		this(hh,0);
+	}
+	
+	public int getMins()
+	{
+		if (min<60)
+			return min;
+		else return min%60;
+	}
+	public int getHours() {
+		return min/60;
+	}
+	public String toString()
+	{
+		String s =getHours()+":"+getMins();
+		return s;
+	}
+	public int  getMinsOnly() {
+		return min;
+	}
+	public Time add(Time t) {
+		//Complex ret = new Complex(re+c.re, im+c.im);
+			int tmp=(min+t.min)/(24*60);
+			Time ret=new Time(0-tmp*24,min+t.min);
+			return ret;	
+	}
+	public Time sub(Time t) {
+		int tmp=0;
+		if(min-t.min<0)
+		{
+			tmp=1+(-(min-t.min)/(24*60));
+		}
+		Time ret=new Time(0+tmp*24,min-t.min);
+		return ret;	
+	}
+	public Time AddMins(int mins)
+	{	
+		int tmp=(min+mins)/(24*60);
+		Time t=new Time (0-tmp*24,this.min+mins);
+		
+		return t;
+	}
+	public boolean greaterThan(Time t) {
+		if (min>t.min)
+			return true;
+		else return false;
+	}
+	public boolean lessThan(Time t) {
+		if (min<t.min)
+			return true;
+		else return false;
+	}
+	public Time addHours (int hh) {
+		Time t =new Time(hh);
+		return t;
+	}
+	public int compareTo(Time t) {
+		if (min==t.min)
+			return 0;
+		else if(min<t.min) return -1;
+		else return 1;
+	}
+	public static void Main(String[] args) {
+		Time t1=new Time(2,100),t2=new Time(2,300);
+		Time t3=t1.add(t2);
+		Time t4=t1.sub(t2);
+		Time t5=t1.AddMins(20000);
+		System.out.println(t5);
+		System.out.println(t3.toString());
+		System.out.println(t4.toString());
+	}
+}

@@ -1,0 +1,19 @@
+package Könyvtár_nyilvántartó;
+
+public class Tudomanyos extends Könyvek {
+	private String leiras;
+	private String ag;//tudomanyag
+	Tudomanyos(String name, String szerzo, int kiadaseve,String tudag) {
+		super(name, szerzo, kiadaseve);
+		// TODO Auto-generated constructor stub
+		this.ag=tudag;
+		leiras="Még nincs hozzáadva leírás";
+		this.type="t";
+	}
+
+	public void setLeiras(String s) {leiras=s;};
+	public String getLeiras() {return leiras;}
+	public String getAg() {return ag;}
+	public void setAg(String ag) {this.ag=ag;}
+	public String toString() {return super.toString()+", "+ag+", "+"Leírása:"+ leiras;}
+}

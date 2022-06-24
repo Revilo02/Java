@@ -1,0 +1,36 @@
+package Könyvtár_nyilvántartó;
+
+public class Könyvek {
+	protected int ID;
+	static  protected int IDplus;
+	private String name;
+	private String szerzo;
+	private int kiadaseve;
+	protected boolean kiadva;
+	protected String type;
+	Könyvek(String name,String szerzo,int kiadaseve){
+		type="k";
+		ID=++IDplus;
+		this.name=name;
+		this.szerzo=szerzo;
+		this.kiadaseve=kiadaseve;
+		this.kiadva=false;
+	}
+	
+	public String getName() {return name;}
+	public String getSzerzo() {return szerzo;}
+	public int getKiadaseve() { return kiadaseve;}
+	public boolean getKiadva() {return kiadva;}
+	public String getType() {return type;}
+	public void setKiadva(boolean ki) {kiadva=ki;}
+	public String toString()
+	{return ID+", "+name+", "+szerzo+", "+kiadaseve;}
+	public int getID() {return ID;}
+	public void setID(int id) {this.ID=id;IDplus=ID;}
+	public void setName(String n) {name=n;}
+	public void setSzerzo(String sz) {szerzo=sz;}
+	public void setKiadaseve(int i) {kiadaseve=i;}
+	public void setType(String i) {type=i;}
+	
+	
+}

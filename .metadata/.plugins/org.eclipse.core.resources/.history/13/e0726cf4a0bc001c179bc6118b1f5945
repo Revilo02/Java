@@ -1,0 +1,33 @@
+package Könyvtár_nyilvántartó;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.io.*;
+public class Main extends Menu{
+	
+	public static void main(String[] args) throws IOException {
+		ArrayList<Könyvek> books=new ArrayList<Könyvek>();
+		BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+		Scanner s=new Scanner(System.in);
+		//String cmd = bf.readLine();	
+		Add(books);
+
+		while(true) {
+			String linse = s.nextLine();
+			String[] cmd = linse.split(" ");
+			if(cmd[0].equals("9")) {
+				s.close();
+				break;
+			} else if(cmd[0].equals("0")) {
+				Add(books);
+			} else if(cmd[0].equals("list")) {
+				
+			} else if(cmd[0].equals("search")) {
+				;
+			} else if(cmd[0].equals("find")) {
+				
+			}else if(cmd[0].equals("remove")) {
+						}
+		}
+		
+	}
+}

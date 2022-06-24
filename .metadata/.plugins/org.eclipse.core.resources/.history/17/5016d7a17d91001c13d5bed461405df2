@@ -1,0 +1,17 @@
+package rekurzivfv;
+
+public class recfv {
+	static int fakt(int sz)
+	{
+		
+		if (sz==1)
+			return sz;
+		else if(sz>Integer.MAX_VALUE/sz+1)
+			return 1;
+		else return sz*fakt(sz-1);
+	}
+	static public void main(String[] args)
+	{
+		System.out.println(fakt(1000));
+	}
+}

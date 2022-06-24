@@ -1,0 +1,11 @@
+package registry2;
+
+public class CourseException extends Exception {
+	public CourseException(Course a, String message) {
+		super(message);
+	}
+    public String getMessage(Course a)
+    {
+        return a.getName();
+    }
+}

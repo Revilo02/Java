@@ -1,0 +1,28 @@
+package Könyvtár_nyilvántartó;
+import java.util.ArrayList;
+public class Latogato {
+	private String name;
+	private String elerhetoseg;
+	private  ArrayList<Könyvek> a=new ArrayList<Könyvek>();
+	private int ID;
+	static private int IDplusz;
+	Latogato(String n,String e){
+		name=n;
+		elerhetoseg=e;
+		ID=++IDplusz;
+		
+	}
+	public String getName() {return name;}
+	public String getElerhetoseg() {return elerhetoseg;}
+	public int getID() {return ID;}
+	public ArrayList<Könyvek> getElvitt(){return a;}
+	public String toString() {return "Az olvasó neve: "+name+"\n"+"Az olvasó elérhetõsége:"+elerhetoseg;}
+	public void namemodosit(String n) {name=n;}
+	public void elerhetosegmodosit(String e) {elerhetoseg=e;}
+	public void konyvadd(Könyvek k) {
+			a.add(k);		
+	}
+	public ArrayList<Könyvek> listaz(){
+		return a;
+	}
+}

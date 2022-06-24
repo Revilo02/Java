@@ -1,0 +1,55 @@
+package Könyvtár_nyilvántartó;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+public class IO extends Parancsok {
+	static void beolvas(String Filename) throws Exception
+	{  
+		File file = new File(Filename);
+
+		try (	BufferedReader in = new BufferedReader( new InputStreamReader(new FileInputStream(file), "UTF8"))) {
+		  String str;
+		  
+		  while ((str = in.readLine()) != null) {
+			String [] sv=str.split(";") ;
+			if(Filename.equals("Könyvek.txt")) {
+			//	int a=(int)sv[3];
+			
+				try{
+					Könyvek k=(new Könyvek (sv[1],sv[2],sv[3],Integer.parseInt(sv[4])));
+					k.setID(Integer.parseInt(sv[0]));
+					k.setLeiras(sv[5]);
+					books.add(k);
+				}   catch (Exception e) {
+					  System.out.println(e.getMessage());
+					  System.out.println("Nem megfelelő adattagok");}
+				}
+			else if(Filename.equals("Olvasok.txt")) {
+				
+
+					try {
+						Latogato l=new Latogato(sv[1],sv[2]);
+						l.setID(Integer.parseInt(sv[0]));
+						String [] konyvid=sv[3].split(",");
+						
+						System.out.println(konyvid.length);
+						/*for(int i=0;i<konyvid.length;i++) {
+							for(int j=0;j<books.size();j++) {
+								if(Integer.parseInt(konyvid[i])==books.get(i).getID()) {
+									l.konyvadd(books.get(i));
+								}
+							}
+						}/*/
+						latogatok.add(l);
+					}catch (Exception e) {
+						  System.out.println(e.getMessage());
+						  System.out.println("Nem megfelelő adattagok");}
+					
+				}
+			}	
+		}
+	}
+}
+	
+	
+	

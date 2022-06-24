@@ -1,0 +1,22 @@
+package rekurzivfv;
+
+public class recfv {
+	static int fakt(int sz)
+	{
+		
+		if (sz==1)
+			return sz;
+		if (sz>16)
+			return 0;
+		
+		else 
+			{
+			return sz*fakt(sz-1);
+			}
+	}
+	static public void main(String[] args)
+	{
+		System.out.println(fakt(17));
+		System.out.print("vége");
+	}
+}

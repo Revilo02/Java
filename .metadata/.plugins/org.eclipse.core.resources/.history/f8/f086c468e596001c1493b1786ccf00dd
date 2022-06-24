@@ -1,0 +1,22 @@
+package masodik;
+
+public class Time {
+	private int min;
+	public Time(int hh,int mm)
+	{
+		min=60*hh+mm;
+	}
+	public int getMins()
+	{
+		if (min<60)
+			return min;
+		else return 60%min;
+	}
+	public int getHours() {
+		return min/60;
+	}
+	public static void main(String[] args) {
+		Time t=new Time(2,300);
+		System.out.println(t.min);
+	}
+}

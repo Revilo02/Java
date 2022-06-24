@@ -1,0 +1,49 @@
+package masodik;
+
+import complex.Complex;
+
+public class Time {
+	private int min;
+	public Time(int hh,int mm)
+	{
+		min=60*hh+mm;
+	}
+	public Time() {this(0,0);}
+	public Time(int hh)
+	{
+		this(hh,0);
+	}
+	
+	public int getMins()
+	{
+		if (min<60)
+			return min;
+		else return min%60;
+	}
+	public int getHours() {
+		return min/60;
+	}
+	public String toString()
+	{
+		String s =getHours()+":"+getMins();
+		return s;
+	}
+	public int  getMinsOnly() {
+		return min;
+	}
+	public Time add(Time t) {
+		//Complex ret = new Complex(re+c.re, im+c.im);
+		Time ret=new Time(min+t.min);
+		return ret;
+	}
+	public static void main(String[] args) {
+		Time t1=new Time(2,310),t2=new Time(2,300);
+		Time t3=t3.add(t2)
+		
+		/*
+		 *   Complex c1 = new Complex(1,0), c2 = new Complex(0,-2);
+	    	Complex c3 = c1.add(c2);
+		 */
+		System.out.println(t3.toString());
+	}
+}
