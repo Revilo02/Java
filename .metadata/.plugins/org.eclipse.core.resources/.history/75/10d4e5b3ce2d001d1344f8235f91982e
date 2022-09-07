@@ -1,0 +1,10 @@
+package butorgyar;
+
+public class kinyithato extends Magor {
+	private int maxLength;
+	kinyithato(int w, int l,int ml,String t) {
+		super(w, l,t);
+		maxLength=ml;
+	}
+    
+}

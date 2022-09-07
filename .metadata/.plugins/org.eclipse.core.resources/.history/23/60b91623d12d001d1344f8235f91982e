@@ -1,0 +1,8 @@
+package Ipar;
+//Bárszék
+public class Ivó extends Luca{
+	int labakszama;
+	Ivó(int lsz){
+		labakszama=lsz ;
+	}
+}

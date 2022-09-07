@@ -1,0 +1,19 @@
+package Ipar;
+
+import java.util.Date;
+
+//Hagyományos asztal
+public class Magor extends Butor{
+	private String type;
+	private int weight;
+	private int length;
+	Magor(int w,int l,String t,Date a, Gyar gy){
+		super(gy,a);
+		weight=w;
+		length=l;
+		type=t;
+	}
+	public String getName() {return type;}
+	public int getWeight() {return weight;}
+	public int getLength() {return length;}
+}

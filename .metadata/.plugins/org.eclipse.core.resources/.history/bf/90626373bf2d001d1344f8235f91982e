@@ -1,0 +1,9 @@
+package butorgyar;
+
+public  class butor {
+	abstract String Name;
+	butor(String n){
+		Name=n;
+	}
+	String getName() {return Name;}
+}

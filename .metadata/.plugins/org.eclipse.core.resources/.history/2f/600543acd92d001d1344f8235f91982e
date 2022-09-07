@@ -1,0 +1,12 @@
+package Ipar;
+
+import java.util.Date;
+
+public class main {
+	static public void main (String[] args) {
+		Date a=new Date();
+		Gyar gy=new Gyar("Gyõr");
+		Butor hagyasztal=new Magor(120, 70, "Bükk", a, gy);
+		System.out.println(hagyasztal.getGyar().getHelyszin());
+	}
+}

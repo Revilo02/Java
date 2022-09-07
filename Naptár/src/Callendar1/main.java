@@ -35,7 +35,6 @@ public class main {
 			
 		}
 		
-		//System.out.println(first.getDayOfWeek().getVal ue());
 	}
 	
 	private static void printYear(LocalDate t) {

@@ -1,0 +1,15 @@
+package Másodfok;
+import java.util.Date;
+import java.util.Scanner;
+
+public class Képlet {
+	
+	static public void main (String[] args)
+		{	
+		  Date d=new Date();  
+	        System.out.println("Old date is : "+d.getDate());  
+	        d.setDate(10);  
+	        System.out.println("Date after setting is : "+d.getDate());  
+			}
+		}
+

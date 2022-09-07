@@ -1,0 +1,8 @@
+package Ipar;
+
+public class Gyar {
+	String helyszin;
+	Gyar(String h){
+		helyszin=h;
+	}
+}

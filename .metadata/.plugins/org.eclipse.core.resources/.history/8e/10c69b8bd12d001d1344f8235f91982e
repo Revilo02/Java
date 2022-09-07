@@ -1,0 +1,16 @@
+package Ipar;
+
+import java.time.LocalDate;
+import java.util.Date;
+
+public class Butor {
+	//TODO
+	Gyar gyar;
+	Date gyartido=new Date();
+	Butor(Gyar gy, Date i){
+		gyar=gy;
+		gyartido=i;
+	}
+	public Gyar getGyar() {return gyar;}
+	public Date getGyartido() {return gyartido;}
+}

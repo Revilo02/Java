@@ -1,0 +1,13 @@
+package butorgyar;
+
+public class asztal {
+	private int weight;
+	private int length;
+	asztal(int w, int l){
+		weight=w;
+		length=l;
+	}
+	private int getWeight() {return weight;}
+	private int getLength() {return length;}
+	
+}

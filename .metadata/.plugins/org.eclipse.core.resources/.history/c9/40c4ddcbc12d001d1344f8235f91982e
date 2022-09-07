@@ -1,0 +1,15 @@
+package butorgyar;
+
+public class asztal  {
+	private int weight;
+	private int length;
+	private String anyaga;
+	asztal( int w, int l,String a){
+		anyaga=a;
+		weight=w;
+		length=l;
+	}
+	private int getWeight() {return weight;}
+	private int getLength() {return length;}
+	private String getAnyag() {return anyaga;}
+}

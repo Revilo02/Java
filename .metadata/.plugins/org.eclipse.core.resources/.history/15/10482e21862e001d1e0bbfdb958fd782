@@ -1,0 +1,35 @@
+package Ipar;
+
+import java.util.Arrays;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
+public class KarpitosB  extends Butor{
+	private static final Set<Integer> values = new HashSet<Integer>(Arrays.asList(12, 16, 19));
+
+	private String tipuskod;
+	private String szin;
+	private boolean allergen;
+	KarpitosB(Gyar gy, Date i,String t,String c) {
+		super(gy, i);
+		szin=c;
+		tipuskod=t;
+		if(tipuskod=="Classic1") {
+		allergen=true;
+		}else {allergen=false;}
+	}
+	public String getTipuskod() {return tipuskod;}
+	public String getSzin() {return szin;}
+	public boolean getAllergen() {return allergen;}
+	public void setTipuskod(String tip) {tipuskod=tip;}
+	public void setSzin(String c) {szin=c;}
+
+	public void setAllergen(boolean b) {allergen=b;}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

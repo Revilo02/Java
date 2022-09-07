@@ -1,0 +1,5 @@
+package butorgyar;
+
+public class kinyithatoasztal extends asztal {
+	public int setLength() {};
+}

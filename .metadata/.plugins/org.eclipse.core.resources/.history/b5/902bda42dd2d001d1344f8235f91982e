@@ -1,0 +1,20 @@
+package Ipar;
+
+import java.util.ArrayList;
+
+public class Raktar {
+	private ArrayList<Butor> keszlet=new ArrayList<Butor>();
+	
+	public void Add(Butor b) {
+		keszlet.add(b);
+	}
+	public void Remove(Butor b) {
+		keszlet.remove(b);
+	}
+	public int Size() {
+		return keszlet.size();
+	}
+	public Butor searchByID(int be) {
+		return null;
+	};
+}

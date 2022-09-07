@@ -1,0 +1,16 @@
+package butorgyar;
+
+public class kinyithatoasztal extends asztal {
+	private int MaxLength;
+	kinyithatoasztal(String name,int w, int l,int ml) {
+		super(w, l);
+		MaxLength=ml;
+	}
+	
+	public int getMaxLength() {
+		return this.MaxLength;
+	}
+	public void setMaxLength(int l) {
+		this.MaxLength=l;
+	}
+}

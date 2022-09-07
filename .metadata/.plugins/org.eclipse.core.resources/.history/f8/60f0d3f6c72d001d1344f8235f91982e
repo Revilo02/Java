@@ -1,0 +1,16 @@
+package butorgyar;
+
+public class asztal {
+	private String type;
+	private int weight;
+	private int length;
+	asztal(int w,int l,String t){
+		weight=w;
+		length=l;
+		type=t;
+	}
+	public String getName() {return type;}
+	public int getWeight() {return weight;}
+	public int getLength() {return length;}
+	
+}

@@ -1,0 +1,5 @@
+package Ipar;
+//Hagyományos szék
+public class Luca extends Butor{
+	
+}

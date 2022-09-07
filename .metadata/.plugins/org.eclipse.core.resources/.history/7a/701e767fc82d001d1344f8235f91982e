@@ -1,0 +1,10 @@
+package Ipar;
+
+public class Hunor extends Magor {
+	private int maxLength;
+	Hunor(int w, int l,int ml,String t) {
+		super(w, l,t);
+		maxLength=ml;
+	}
+    
+}

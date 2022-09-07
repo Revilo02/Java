@@ -1,0 +1,13 @@
+package Ipar;
+
+import java.util.Date;
+
+//Kinyitható szék
+public class Hunor extends Magor {
+	private int maxLength;
+	Hunor(int w, int l,int ml,String t, Date a, Gyar gy) {
+		super(w, l,t,a,gy);
+		maxLength=ml;
+	}
+    
+}

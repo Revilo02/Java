@@ -1,0 +1,29 @@
+package Ipar;
+
+import java.util.Date;
+
+public class KarpitosB  extends Butor{
+	private String tipuskod;
+	private String szin;
+	private boolean allergen;
+	KarpitosB(Gyar gy, Date i,String t,String c) {
+		super(gy, i);
+		szin=c;
+		tipuskod=t;
+		if(tipuskod=="Classic1") {
+		allergen=true;
+		}else {allergen=false;}
+	}
+	public String getTipuskod() {return tipuskod;}
+	public String getSzin() {return szin;}
+	public void setTipuskod(String tip) {tipuskod=tip;}
+	public void setSzin(String c) {szin=c;}
+	public boolean getAllergen() {return allergen;}
+	public void setAllergen(boolean b) {allergen=b;}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,13 @@
+package Ipar;
+
+import java.util.Date;
+
+//Hagyományos szék
+public class Luca extends Butor{
+
+	Luca(Gyar gy, Date i) {
+		super(gy, i);
+		// TODO Auto-generated constructor stub
+	}
+	
+}

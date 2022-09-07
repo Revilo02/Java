@@ -14,9 +14,9 @@ INDEX VERSION 1.131+C:\Users\Olivér\OneDrive - Budapesti Mûszaki és Gazdaságtudo
 3701421313.index
 2030081352.index
 369868445.index
-699456497.index
-4275883969.index
 3584474380.index
+4275883969.index
+699456497.index
 879386859.index
 3794337167.index
 3229394102.index
@@ -31,6 +31,7 @@ INDEX VERSION 1.131+C:\Users\Olivér\OneDrive - Budapesti Mûszaki és Gazdaságtudo
 2041704729.index
 199463029.index
 2706345776.index
+87111012.index
 311322666.index
 1115028775.index
 3645880883.index
@@ -41,11 +42,11 @@ INDEX VERSION 1.131+C:\Users\Olivér\OneDrive - Budapesti Mûszaki és Gazdaságtudo
 1119330652.index
 3996312583.index
 1241793154.index
+757149546.index
 2371111139.index
 847817156.index
 3942907234.index
 1657330681.index
 248271265.index
 760091825.index
-2045359498.index
 270831906.index

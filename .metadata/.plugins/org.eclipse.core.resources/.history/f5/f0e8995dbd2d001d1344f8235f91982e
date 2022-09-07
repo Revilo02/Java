@@ -1,0 +1,8 @@
+package butorgyar;
+
+public class butor {
+	String Name;
+	butor(String n){
+		Name=n;
+	}
+}

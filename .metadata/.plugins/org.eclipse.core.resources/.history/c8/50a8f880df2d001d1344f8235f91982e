@@ -1,0 +1,18 @@
+package Ipar;
+
+import java.util.Date;
+
+public class KarpitosB  extends Butor{
+
+	KarpitosB(Gyar gy, Date i) {
+		super(gy, i);
+		
+	}
+
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,10 @@
+package Ipar;
+
+public class kinyithato {
+	private int maxLength;
+	kinyithato(int w, int l,int ml,String t) {
+		super(w, l,t);
+		maxLength=ml;
+	}
+    
+}

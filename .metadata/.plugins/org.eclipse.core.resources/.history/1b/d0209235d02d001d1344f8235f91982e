@@ -1,0 +1,9 @@
+package Ipar;
+
+public class Butor {
+	//TODO
+	Gyar gyar;
+	
+	
+	public Gyar getGyar() {return gyar;}
+}
